@@ -1,0 +1,24 @@
+
+<div className="mw5 center">
+<form method='post' action='http://localhost:3001/' onSubmit={this.handleSubmit}>
+              <div className='cf'>
+                <label className='fl pa3' htmlFor='name'> Enter Date: </label>
+                <input className='fr pa3' name='name' type='Date' onChange={this.handleChange}/>
+          
+              </div>
+                
+                <br/>
+              <div className='cf'>
+                <label className='fl pa3' htmlFor='rollno'> Enter Rollno: </label>
+                <input className='fr pa3' name='rollno' type='text' onChange={this.handleChange}/>
+              </div>
+              <div className='cf'>
+                <label className='fl pa3' htmlFor='favsubject'> Enter Favourite Subject: </label>
+                <input className='fr pa3' name='favsubject' type='text' onChange={this.handleChange}/>
+              </div>
+              <div className='b'>
+                <input type='submit' onSubmit={this.handleSubmit}/>
+              </div>
+              
+          </form>  
+  </div>        

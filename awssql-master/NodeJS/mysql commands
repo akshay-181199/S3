@@ -1,0 +1,31 @@
+use cloud337;
+
+create table evaluation(
+seldate varchar(10) not null ,
+days varchar(2) not null ,
+country varchar(15) not null ,
+states varchar(18) not null
+);
+
+DELIMITER $$  
+CREATE TRIGGER rem_empty_strings
+BEFORE INSERT ON evaluation
+FOR EACH ROW
+BEGIN
+        IF NEW.seldate = '' THEN
+                SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Blank value on seldate';
+        END IF;
+        
+        IF NEW.days = '' THEN
+                SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Blank value on days';
+        END IF;
+        
+        IF NEW.country = '' THEN
+                SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Blank value on country';
+        END IF;
+        
+        IF NEW.states = '' THEN
+                SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Blank value on states';
+        END IF;
+END;
+ $$ 
